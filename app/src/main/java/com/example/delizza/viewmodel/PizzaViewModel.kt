@@ -22,6 +22,7 @@ class PizzaViewModel : ViewModel() {
         getPizza()
     }
 
+    //method for getting the pizza list with network call handled on separate thread using coroutines
     private fun getPizza(){
 
             viewModelScope.launch {

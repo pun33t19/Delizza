@@ -8,8 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.delizza.R
+import com.example.delizza.adapters.PizzaItemAdapter
 import com.example.delizza.databinding.FragmentHomeBinding
+import com.example.delizza.decoration.RecyclerViewMargin
 import com.example.delizza.viewmodel.PizzaViewModel
 
 
@@ -17,6 +20,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var _binding:FragmentHomeBinding
     val binding get() = _binding
+
 
     private val viewModel:PizzaViewModel by viewModels()
 
@@ -37,9 +41,16 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.drinksRecyclerView.layoutManager=LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
         viewModel.pizzaList.observe(this){
             Log.d("LIST_TAG",it.toString())
+
+            //item decoration class to add custom margins to recycler view
+            binding.drinksRecyclerView.addItemDecoration(RecyclerViewMargin(60))
+            val pizzaAdapter=PizzaItemAdapter(it)
+            binding.drinksRecyclerView.adapter=pizzaAdapter
         }
+
 
     }
 

@@ -14,4 +14,9 @@
         android:name="com.example.delizza.ui.OrderFragment"
         android:label="fragment_order"
         tools:layout="@layout/fragment_order" />
+    <fragment
+        android:id="@+id/singlePizzaFragment"
+        android:name="com.example.delizza.SinglePizzaFragment"
+        android:label="fragment_single_pizza"
+        tools:layout="@layout/fragment_single_pizza" />
 </navigation>

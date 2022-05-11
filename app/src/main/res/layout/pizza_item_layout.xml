@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginTop="34dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cart_item_card"
+        android:layout_width="84dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="15dp"
+        android:backgroundTint="@color/green_200"
+        app:cardCornerRadius="15dp">
+
+        <RelativeLayout
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/green_dark" />
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/buy_item_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:src="@drawable/pizza_icon" />
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@id/cart_item_card"
+        android:fontFamily="@font/montserrat_alternates"
+        android:layout_alignStart="@id/description_text"
+        android:text="Cheese Margherita"
+        android:textColor="#373737"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/description_text"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_below="@id/item_name"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@id/cart_item_card"
+        android:ellipsize="end"
+        android:fontFamily="@font/montserrat_alternates"
+        android:text="@string/pizza_description"
+        android:maxLines="1"
+        android:textColor="#647039"
+        android:textSize="14sp" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/type_indicator_image"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/item_name"
+        android:scaleType="fitCenter"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/veg" />
+
+
+
+
+</RelativeLayout>
