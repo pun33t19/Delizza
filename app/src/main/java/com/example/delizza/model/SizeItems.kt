@@ -1,3 +1,9 @@
 package com.example.delizza.model
 
-data class SizeItems(val id:Int,val name:String,val price:Int)
+import com.squareup.moshi.Json
+
+data class SizeItems(
+    @Json(name = "id") val id: Int,
+    @Json(name = "name") val name: String,
+    @Json(name = "price") val price: Int
+)

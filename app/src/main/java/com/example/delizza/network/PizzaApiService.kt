@@ -1,5 +1,6 @@
 package com.example.delizza.network
 
+import com.example.delizza.model.PizzaItem
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
@@ -7,7 +8,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
 //base url custom rest api
-private const val BASE_URL="https://pizza-api-new.herokuapp.com"
+private const val BASE_URL="https://pizza-api-new.herokuapp.com/"
 
     //initialising the moshi converter factory to be used for parsing the Json response
     private val moshi = Moshi.Builder()
@@ -24,7 +25,7 @@ private const val BASE_URL="https://pizza-api-new.herokuapp.com"
     interface PizzaApiService {
 
         @GET("pizza")
-        fun getPizzas(): String
+        suspend fun getPizzas(): List<PizzaItem>
 
     }
 
