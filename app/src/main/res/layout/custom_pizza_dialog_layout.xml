@@ -1,6 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/select_crust_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/montserrat_alternates"
+        android:text="@string/select_crust"
+        android:textColor="@color/primary_text_color"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/crust_radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/select_crust_text_view"
+        android:layout_alignStart="@id/select_crust_text_view"
+        android:layout_marginTop="10dp">
+
+        <RadioButton
+            android:id="@+id/hand_tossed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hand_tossed"
+            android:textSize="15sp" />
+
+        <RadioButton
+            android:id="@+id/cheese_burst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cheese_burst"
+            android:textSize="15sp" />
+    </RadioGroup>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/select_size_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/crust_radio_group"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/montserrat_alternates"
+        android:text="@string/select_size"
+        android:textColor="@color/primary_text_color"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/size_radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/select_size_text_view"
+        android:layout_alignStart="@id/select_crust_text_view"
+        android:layout_marginTop="10dp">
+
+        <RadioButton
+            android:id="@+id/regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/regular"
+            android:textSize="15sp" />
+
+        <RadioButton
+            android:id="@+id/medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/medium"
+            android:textSize="15sp" />
+
+        <RadioButton
+            android:id="@+id/large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/large"
+            android:textSize="15sp" />
+    </RadioGroup>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/size_radio_group"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/black" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/total_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider"
+        android:layout_alignStart="@id/size_radio_group"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_alternates"
+        android:text="Total: "
+        android:textColor="@color/primary_text_color"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/price_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider"
+        android:layout_alignTop="@id/total_text"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@id/total_text"
+        android:text="₹ 230"
+        android:textColor="@color/primary_text_color"
+        android:textSize="25sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_button"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/price_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/green_700"
+        android:text="Add"
+        app:cornerRadius="20dp"
+        app:icon="@drawable/shopping_cart" />
+
 
 </RelativeLayout>

@@ -126,6 +126,7 @@
             />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/purchase_button"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_below="@id/star5"

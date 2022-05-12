@@ -12,18 +12,21 @@ import com.example.delizza.databinding.PizzaItemLayoutBinding
 import com.example.delizza.model.PizzaItem
 import com.example.delizza.ui.HomeFragmentDirections
 
-class PizzaItemAdapter(val pizzaItemList:List<PizzaItem>):RecyclerView.Adapter<PizzaItemAdapter.PizzaItemViewHolder>() {
+class PizzaItemAdapter(val pizzaItemList: List<PizzaItem>) :
+    RecyclerView.Adapter<PizzaItemAdapter.PizzaItemViewHolder>() {
 
 
-
-    class PizzaItemViewHolder(val itemBinding:PizzaItemLayoutBinding) :RecyclerView.ViewHolder(itemBinding.root){
-        fun bind(item:PizzaItem){
-            itemBinding.itemName.text=item.name
-            itemBinding.descriptionText.text=item.description
-            if(item.isVeg)
-                Glide.with(itemBinding.root.context).load(R.drawable.veg).into(itemBinding.typeIndicatorImage)
+    class PizzaItemViewHolder(val itemBinding: PizzaItemLayoutBinding) :
+        RecyclerView.ViewHolder(itemBinding.root) {
+        fun bind(item: PizzaItem) {
+            itemBinding.itemName.text = item.name
+            itemBinding.descriptionText.text = item.description
+            if (item.isVeg)
+                Glide.with(itemBinding.root.context).load(R.drawable.veg)
+                    .into(itemBinding.typeIndicatorImage)
             else
-                Glide.with(itemBinding.root.context).load(R.drawable.non_veg).into(itemBinding.typeIndicatorImage)
+                Glide.with(itemBinding.root.context).load(R.drawable.non_veg)
+                    .into(itemBinding.typeIndicatorImage)
 
 
         }
@@ -31,20 +34,27 @@ class PizzaItemAdapter(val pizzaItemList:List<PizzaItem>):RecyclerView.Adapter<P
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PizzaItemViewHolder {
 
-        val inflater=LayoutInflater.from(parent.context)
+        val inflater = LayoutInflater.from(parent.context)
         return PizzaItemViewHolder(PizzaItemLayoutBinding.inflate(inflater))
     }
 
     override fun onBindViewHolder(holder: PizzaItemViewHolder, position: Int) {
-        val pizzaItem=pizzaItemList[position]
+        val pizzaItem = pizzaItemList[position]
 
         holder.bind(pizzaItem)
 
-        val bundle= bundleOf("name" to pizzaItem.name,"description" to pizzaItem.description,"defaultCrust" to pizzaItem.defaultCrust)
+        val bundle = bundleOf(
+            "name" to pizzaItem.name,
+            "description" to pizzaItem.description,
+            "defaultCrust" to pizzaItem.defaultCrust.toString(),
+            "defaultSize" to pizzaItem.crusts[pizzaItem.defaultCrust].defaultSize.toString(),
+            "position" to position.toString()
+        )
 
 
         holder.itemView.setOnClickListener {
-            holder.itemView.findNavController().navigate(R.id.action_homeFragment_to_singlePizzaFragment,bundle)
+            holder.itemView.findNavController()
+                .navigate(R.id.action_homeFragment_to_singlePizzaFragment, bundle)
         }
     }
 
