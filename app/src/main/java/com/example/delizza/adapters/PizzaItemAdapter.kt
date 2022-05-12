@@ -3,11 +3,14 @@ package com.example.delizza.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.delizza.R
 import com.example.delizza.databinding.PizzaItemLayoutBinding
 import com.example.delizza.model.PizzaItem
+import com.example.delizza.ui.HomeFragmentDirections
 
 class PizzaItemAdapter(val pizzaItemList:List<PizzaItem>):RecyclerView.Adapter<PizzaItemAdapter.PizzaItemViewHolder>() {
 
@@ -36,6 +39,13 @@ class PizzaItemAdapter(val pizzaItemList:List<PizzaItem>):RecyclerView.Adapter<P
         val pizzaItem=pizzaItemList[position]
 
         holder.bind(pizzaItem)
+
+        val bundle= bundleOf("name" to pizzaItem.name,"description" to pizzaItem.description,"defaultCrust" to pizzaItem.defaultCrust)
+
+
+        holder.itemView.setOnClickListener {
+            holder.itemView.findNavController().navigate(R.id.action_homeFragment_to_singlePizzaFragment,bundle)
+        }
     }
 
     override fun getItemCount(): Int {

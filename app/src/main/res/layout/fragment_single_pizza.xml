@@ -1,14 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SinglePizzaFragment">
+    android:background="@drawable/single_item_bg"
+    tools:context=".ui.SinglePizzaFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_alternates"
+        android:text="Margheritta Pizza"
+        android:textColor="@color/primary_text_color"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.293" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="449dp"
+        android:layout_marginBottom="-23dp"
+        android:background="@drawable/card_bg"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/particulars_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/montserrat_alternates"
+            android:text="Particulars"
+            android:textColor="@color/text_color"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/item_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/particulars_text_view"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="17dp"
+            android:fontFamily="@font/montserrat_alternates"
+            android:inputType="textMultiLine"
+            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+            android:textSize="12sp" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/star1"
+            android:layout_width="17dp"
+            android:layout_height="16dp"
+            android:layout_below="@id/item_desc"
+            android:layout_alignStart="@id/item_desc"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_star" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/star2"
+            android:layout_width="17dp"
+            android:layout_height="16dp"
+            android:layout_below="@id/item_desc"
+            android:layout_marginStart="5.48dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/star1"
+            android:src="@drawable/ic_star" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/star3"
+            android:layout_width="17dp"
+            android:layout_height="16dp"
+            android:layout_below="@id/item_desc"
+            android:layout_marginStart="5.48dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/star2"
+            android:src="@drawable/ic_star" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/star4"
+            android:layout_width="17dp"
+            android:layout_height="16dp"
+            android:layout_below="@id/item_desc"
+            android:layout_marginStart="5.48dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/star3"
+            android:src="@drawable/ic_star" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/star5"
+            android:layout_width="17dp"
+            android:layout_height="16dp"
+            android:layout_below="@id/item_desc"
+            android:layout_marginStart="5.48dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/star4"
+            android:src="@drawable/ic_star" />
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/heart"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="26dp"
+            android:layout_marginBottom="30dp"
+            android:src="@drawable/heart"
+
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/star5"
+            android:layout_alignTop="@id/heart"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="-26dp"
+            android:layout_toEndOf="@id/heart"
+            android:backgroundTint="@color/green_700"
+            android:text="Purchase"
+            app:cornerRadius="25dp" />
+
+
+    </RelativeLayout>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="16dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="166dp"
+        android:src="@drawable/pizza_icon"
+        app:layout_constraintStart_toEndOf="@+id/item_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

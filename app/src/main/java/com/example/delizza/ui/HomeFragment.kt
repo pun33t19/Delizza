@@ -9,11 +9,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.delizza.MainActivity
 import com.example.delizza.R
 import com.example.delizza.adapters.PizzaItemAdapter
 import com.example.delizza.databinding.FragmentHomeBinding
 import com.example.delizza.decoration.RecyclerViewMargin
 import com.example.delizza.viewmodel.PizzaViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class HomeFragment : Fragment() {
@@ -34,6 +36,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater)
+
+        (activity as MainActivity).findViewById<BottomNavigationView>(R.id.bottom_nav).visibility=View.VISIBLE
         // Inflate the layout for this fragment
         return binding.root
     }
