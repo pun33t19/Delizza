@@ -49,10 +49,11 @@ class CustomPizzaDialog(context: Context) :DialogFragment() {
         Log.d("map",priceMap.toString())
 
 
-
+        
         viewModel.pizzaList.observe(this){
             Log.d("LIST_CUSTOM_PIZZA",it.toString())
             viewModel.changePrice(it[arguments?.getString("position")!!.toInt()].crusts[priceMap["defaultCrust"]!!].sizes[priceMap["defaultSize"]!!].price)
+
 
         }
 
